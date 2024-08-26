@@ -1,63 +1,38 @@
-import './App.css'
-import './bootstrap.min.css'
-import Header from './assets/components/header'
-import Footer from './assets/components/footer'
-import Home from './assets/pages/home'
-import History from './assets/pages/history'
-import Landing from './assets/pages/landing'
-import Error from './assets/components/error'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import Notify from './assets/components/notify'
-import Register from './assets/pages/register'
-import Login from './assets/pages/login'
+import './App.css';
+import './bootstrap.min.css';
+import Header from './assets/pages/header';
+import Footer from './assets/components/footer';
+import Home from './assets/pages/home';
+import History from './assets/pages/history';
+import Landing from './assets/pages/landing';
+import Error from './assets/components/error';
+import Register from './assets/pages/register';
+import Login from './assets/pages/login';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
 
 function App() {
-  const user=  localStorage.getItem('user');
-  console.log(user)
-  if(user===undefined)
-  {
-    localStorage.setItem('user',`{"email":" ","pass":" " }`)
-  }
-  else{
-    console.log('error')
+  // Initialize user in localStorage if not present
+  const user = localStorage.getItem('user');
+  if (user === null) {
+    localStorage.setItem('user', JSON.stringify({ email: " ", pass: " " }));
   }
 
-  const router=createBrowserRouter([
-    {
-      path:'/home',
-      element:<Home/>
-    },
-    {
-      path:'/',
-      element:<Landing/>,
-      errorElement:<Error/>
-    },
-    {
-      path:'/history',
-      element:<History/>
-    },
-    {
-      path:'/msg',
-      element:<Notify/>
-    },
-    {
-      path:'/register',
-      element:<Register/>
-    },
-    {
-      path:'/login',
-      element:<Login/>
-    }
-  ])
   return (
-    <>
-    <Header/>
-
-     <RouterProvider router={router}/>
-
-     <Footer/>
-    </>
-  )
+    <Router>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Landing />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/history" element={<History />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="*" element={<Error />} />
+      </Routes>
+      <Footer />
+      <Toaster/>
+    </Router>
+  );
 }
 
-export default App
+export default App;

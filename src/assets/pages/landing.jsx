@@ -11,15 +11,14 @@ function Landing() {
           <Col className='p-5  ' sm={12} md={6} >
 
 
-            <h1 className='p-2 d-inline py-5 fs-1'><i class="fa-solid fa-2x fa-photo-film me-3"></i>Media Player 2024</h1>
+            <h1 className='p-2 d-inline py-5 fs-1'><i className="fa-solid fa-2x fa-photo-film me-3"></i>Media Player 2024</h1>
             <br />
             <br />
             <p className='mt-2 '>Media Player is an online platform for youtube video uploads and management.Media Player is an online platform for youtube video uploads and management.Media Player is an online platform for youtube video uploads and management.Media Player is an online platform for youtube video uploads and management.</p>
             <Link to={`/home`}> <button className='btn  w-100 rounded-1 bg-success text-light'>Let's Go</button></Link>
           </Col>
 
-          <Col clas >
-          </Col>
+          
 
           <Col md={5} sm={12}>
             <img src="https://cdni.iconscout.com/illustration/premium/thumb/media-player-8044271-6369983.png?f=webp" alt="" />
@@ -93,7 +92,7 @@ function Landing() {
         </Col>
   
         <Col md={6} sm={12} style={{overflowX:'hidden'}}>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/N3AkSS5hXMA?si=y7QJ0zkeJ4NI7jsJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/N3AkSS5hXMA?si=y7QJ0zkeJ4NI7jsJ" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
         </Col>
       </Row>
     </div>

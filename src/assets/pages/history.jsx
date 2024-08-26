@@ -1,11 +1,12 @@
 import axios from 'axios'
 import React, { useState ,useEffect } from 'react'
 import { Container } from 'react-bootstrap'
-import { toast, ToastContainer } from 'react-toastify'
+import { useNavigate } from 'react-router-dom'
+import { Toaster ,toast } from 'react-hot-toast'
 function History() {
   const [history, setHistory] = useState([])
   const[user,setUser]=useState(JSON.parse(localStorage.getItem('user')))
-
+  const navi=useNavigate()
   useEffect(() => {
     axios.get(`https://mediaplayerserver-wmdp.onrender.com/history?userEmail=${user.email}`)
       .then(res => {
@@ -29,14 +30,14 @@ function History() {
           {
             history.length>0 ?
             history.map(obj=>(
-              <tr>
+              <tr key={obj.id}>
               <td>{obj.key}</td>
               <td>{obj.title}</td>
               <td>{obj.url}</td>
               <td>{obj.data}</td>
-              <td><i class="fa-solid fa-trash" onClick={()=>axios.delete('http://localhost:3000/history/'+obj.id).then(res=>{toast('watch history deleted'); setTimeout(() => {
-            location.reload()
-          },1500)})} id={obj.id} style={{ color: "#e50b0b",cursor:'pointer' }}></i></td>
+              <td><i className="fa-solid fa-trash" onClick={()=>axios.delete('https://mediaplayerserver-wmdp.onrender.com/history/'+obj.id).then(res=>{toast.success('watch history deleted');navi('/'); setTimeout(() => {
+            navi('/history')
+          },1)})} id={obj.id} style={{ color: "#e50b0b",cursor:'pointer' }}></i></td>
             </tr>
             ))
             :<tr>
@@ -48,7 +49,6 @@ function History() {
 
         </tbody>
       </table>
-      <ToastContainer/>
     </Container>
   )
 }

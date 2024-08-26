@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react'
 import { Modal, Button, Container, FloatingLabel, Form } from 'react-bootstrap';
-import {ToastContainer, toast } from 'react-toastify';
+import toast, { Toaster } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 
 function Addvideo() {
@@ -22,20 +22,22 @@ function Addvideo() {
                 .then(res=>{
                     console.log(res)
                     
-                    toast('video added Sucsessfully')
+                    toast.success('video added Sucsessfully')
                     handleClose()
+                    navi('/')
                     setTimeout(() => {
-                        location.reload();
-                    }, 1500);
+                       
+                        navi('/home')
+                    }, 1);
 
                 })
                 .catch(()=>{
                     console.log('error')
-                    toast('video ID already exist')
+                    toast.error('video ID already exist')
                 });
             } 
             else{
-                toast('please Check Input Values')
+                toast.error('please Check Input Values')
             }
 
         
@@ -44,7 +46,7 @@ function Addvideo() {
     return (
         <Container className='my-5'>
             <Button variant="warning" className='rounded-pill  text-center' style={{width:'max-content',height:'auto'}} onClick={handleShow}  >
-            <i class="fa-solid fa-plus fa-1x"></i>
+            <i className="fa-solid fa-plus fa-1x"></i>
             </Button>
 
             <Modal show={show} onHide={handleClose}>
@@ -76,7 +78,6 @@ function Addvideo() {
                 </Modal.Footer>
             </Modal>
 
-            <ToastContainer/>
         </Container>
     )
 }

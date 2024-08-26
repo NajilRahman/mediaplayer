@@ -1,9 +1,9 @@
 import axios from 'axios'
 import React, { useEffect } from 'react'
 import { Button } from 'react-bootstrap'
-import { json, Link } from 'react-router-dom'
+import {  Link } from 'react-router-dom'
 import { useState } from 'react'
-import { toast, ToastContainer } from 'react-toastify'
+import {toast,  Toaster } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom'
 function Login() {
   const [email,setEmail]=useState('')
@@ -23,19 +23,19 @@ function Login() {
         {
          
           localStorage.setItem('user',localdata)
-          toast('logined')
+          toast.success('logined')
           setTimeout(() => {
             navi('/')
           }, 1500);
 
         }
         else{
-          toast('invalid User Data')
+          toast.error('invalid User Data')
         }
       })
     })
     .catch(()=>{
-      toast('failed to login 401')
+      console.log('error')
     })
   }
   return (
@@ -112,8 +112,6 @@ function Login() {
           </div>
         </div>
       </section>
-
-      <ToastContainer/>
     </div>
   )
 }

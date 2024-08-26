@@ -10,7 +10,7 @@ function Register() {
   
 
 const reg=()=>{
-  axios.post('https://mediaplayerserver-wmdp.onrender.com//user',{userEmail:email,userPass:pass})
+  axios.post('https://mediaplayerserver-wmdp.onrender.com/user',{userEmail:email,userPass:pass})
   .then(res=>{
     console.log('regisered')
    
@@ -21,7 +21,7 @@ const reg=()=>{
 }
   return (
     <div>
-      <section className="h-100 p-5 gradient-form" style={{ backgroundColor: '#eee' }}>
+      <section className="h-100  gradient-form" style={{ backgroundColor: '#eee' }}>
         <div className="container py-5 h-100">
           <div className="row d-flex justify-content-center align-items-center h-100">
             <div className="col-xl-10">
