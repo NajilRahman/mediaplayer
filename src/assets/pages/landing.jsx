@@ -1,8 +1,22 @@
 import React from 'react'
 import { Card, Col, Row} from 'react-bootstrap'
-import { Link } from 'react-router-dom'
-
+import { Link , useNavigate} from 'react-router-dom'
+import { useState ,useEffect } from 'react'
+import toast from 'react-hot-toast'
 function Landing() {
+  const navi=useNavigate();
+  const[user,setUser]=useState(JSON.parse(localStorage.getItem('user')))
+useEffect(() => {
+  
+  if(user.email==" " || user.pass==" ")
+    {
+      navi('/login')
+      toast.success('Login Before Entering')
+    }
+  
+}, [])
+
+ 
   return (
 
     <>
