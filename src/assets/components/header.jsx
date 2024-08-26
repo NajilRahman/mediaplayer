@@ -15,7 +15,7 @@ function Header() {
             <h3 className='d-inline ms-2 my-4'>Media Player</h3>
           </Navbar.Brand>
         </Container>
-       <a href='https://nr-yt-media.netlify.app/login'> <h3 className='mx-5' style={{cursor:'pointer'}} onClick={logout}>logout</h3></a>
+       <a href='/login'> <h3 className='mx-5' style={{cursor:'pointer'}} onClick={logout}>logout</h3></a>
       </Navbar>
     </>
   )
