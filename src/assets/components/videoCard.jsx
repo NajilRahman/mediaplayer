@@ -46,7 +46,7 @@ function VideoCard(props) {
         </Card.Body>
       </Card>
 
-      <Modal show={show} className='w-75' onHide={handleClose}>
+      <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title><h2>{props.title}</h2></Modal.Title>
         </Modal.Header>
