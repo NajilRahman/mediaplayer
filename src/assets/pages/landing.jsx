@@ -10,8 +10,8 @@ useEffect(() => {
   
   if(user.email==" " || user.pass==" ")
     {
-      navi('/login')
       toast.success('Login Before Entering')
+      navi('/login')
     }
   
 }, [])
