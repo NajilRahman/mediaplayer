@@ -46,11 +46,11 @@ function VideoCard(props) {
         </Card.Body>
       </Card>
 
-      <Modal show={show} onHide={handleClose}>
+      <Modal show={show} className='w-75' onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title><h2>{props.title}</h2></Modal.Title>
         </Modal.Header>
-        <Modal.Body><iframe width="460" height="315" src={props.url + '&autoplay=1'} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowFullScreen ></iframe></Modal.Body>
+        <Modal.Body><iframe className='w-100'  height="315" src={props.url + '&autoplay=1'} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowFullScreen ></iframe></Modal.Body>
         <Modal.Footer>
         </Modal.Footer>
       </Modal>
